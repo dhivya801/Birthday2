@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎂 Happy 9th Birthday Naga Arjun! 🎂</title>
+    <!-- Compelling SEO Meta Tags -->
+    <meta name="description" content="Enter a magical, animated party world built specifically to celebrate Naga Arjun's 9th Birthday! Blow interactive 3D candles, play fun mini-games, and explore beautiful memories.">
+    <meta name="keywords" content="Happy Birthday, Naga Arjun, 9th Birthday, Interactive Birthday Surprise, Celebration, Kids Games">
+    
+    <!-- Google Fonts for Disney / Cartoon Network Premium Aesthetics -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Full-Screen Interactive Background Elements -->
+    <div class="sky-background" id="skyBg"></div>
+    <div class="clouds-container" id="cloudsContainer"></div>
+    <div class="stars-container" id="starsContainer"></div>
+    <div class="balloons-stream" id="balloonsStream"></div>
+    
+    <!-- Physics Canvas Overlays -->
+    <canvas id="fireworksCanvas"></canvas>
+    <canvas id="confettiCanvas"></canvas>
+
+    <!-- Sound Toggle for Web Audio Synthesizer -->
+    <div class="sound-control-wrapper">
+        <button id="soundToggleBtn" class="sound-toggle-btn" aria-label="Toggle Sound">
+            <span class="sound-icon">🔊</span>
+            <span class="sound-text">SOUND ON</span>
+        </button>
+    </div>
+
+    <!-- Main Magical Content Container -->
+    <div class="app-container">
+        
+        <!-- ================= HERO SECTION ================= -->
+        <header class="hero-section">
+            <div class="celebration-badge">🎂 CELEBRATING NAGA ARJUN 🎂</div>
+            
+            <h1 class="main-heading">
+                <span class="heading-line-1">HAPPY 9th BIRTHDAY</span>
+                <span class="heading-line-2 gradient-glow">NAGA ARJUN</span>
+            </h1>
+            
+            <!-- Huge Glowing Age Highlight with Pulsing Fireworks behind -->
+            <div class="age-highlight-wrapper">
+                <div class="age-glowing-ring"></div>
+                <div class="age-number" id="ageNumber">9</div>
+                <div class="age-sparkles">
+                    <span style="--i:1">✨</span>
+                    <span style="--i:2">⭐</span>
+                    <span style="--i:3">✨</span>
+                    <span style="--i:4">⭐</span>
+                </div>
+            </div>
+            
+            <p class="hero-subtext">Welcome to your magical party world! Click on everything to explore the surprises! 🚀🎈✨</p>
+        </header>
+
+        <!-- ================= PERSONALIZED GREETING CARD ================= -->
+        <section class="message-section">
+            <div class="envelope-wrapper" id="envelopeWrapper">
+                <div class="envelope" id="envelope">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-pocket"></div>
+                    <div class="envelope-seal" id="envelopeSeal">
+                        <div class="seal-inner"> Arjun </div>
+                    </div>
+                </div>
+                <div class="letter-card" id="letterCard">
+                    <button class="close-letter-btn" id="closeLetterBtn">&times;</button>
+                    <h2 class="letter-title">Dear Naga Arjun,</h2>
+                    <p class="letter-body">
+                        Today is your special day! 🌟<br><br>
+                        May your birthday be filled with happiness, laughter, fun adventures, exciting surprises, and lots of cake. 🍰✨<br><br>
+                        Keep dreaming big, keep smiling, and always believe in yourself. You are capable of moving mountains and reaching the stars! 🚀⭐🏆<br><br>
+                        <strong>Wishing you the happiest 9th birthday ever! 🎉🎂🎈</strong>
+                    </p>
+                    <div class="letter-footer">With Love & Magic ❤️</div>
+                </div>
+            </div>
+            <p class="envelope-hint" id="envelopeHint">✉️ Click the envelope to open your magical birthday card!</p>
+        </section>
+
+        <!-- ================= INTERACTIVE CAKE SECTION ================= -->
+        <section class="cake-section">
+            <h2 class="section-title text-rainbow-glow">🎂 Blow Your Birthday Candles!</h2>
+            
+            <div class="cake-wrapper">
+                <div class="cake-glow-backdrop"></div>
+                
+                <!-- Stylized 3D Birthday Cake Container -->
+                <div class="cake-3d" id="birthdayCake">
+                    <!-- 9 Candles placed beautifully on top tier -->
+                    <div class="candles-layer">
+                        <div class="candle" style="--x: -45px; --y: 10px; --z: 15px;" id="candle1">
+                            <div class="flame"></div>
+                        </div>
+                        <div class="candle" style="--x: -25px; --y: -5px; --z: 10px;" id="candle2">
+                            <div class="flame"></div>
+                        </div>
+                        <div class="candle" style="--x: 0px; --y: -10px; --z: 12px;" id="candle3">
+                            <div class="flame"></div>
+                        </div>
+                        <div class="candle" style="--x: 25px; --y: -5px; --z: 10px;" id="candle4">
+                            <div class="flame"></div>
+                        </div>
+                        <div class="candle" style="--x: 45px; --y: 10px; --z: 15px;" id="candle5">
+                            <div class="flame"></div>
+                        </div>
+                        <div class="candle" style="--x: -35px; --y: 20px; --z: 20px;" id="candle6">
+                            <div class="flame"></div>
+                        </div>
+                        <div class="candle" style="--x: -10px; --y: 15px; --z: 22px;" id="candle7">
+                            <div class="flame"></div>
+                        </div>
+                        <div class="candle" style="--x: 15px; --y: 15px; --z: 22px;" id="candle8">
+                            <div class="flame"></div>
+                        </div>
+                        <div class="candle" style="--x: 35px; --y: 20px; --z: 20px;" id="candle9">
+                            <div class="flame"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cake Tiers -->
+                    <div class="cake-tier top-tier">
+                        <div class="icing-drips"></div>
+                    </div>
+                    <div class="cake-tier bottom-tier">
+                        <div class="icing-drips"></div>
+                        <div class="cake-sprinkles"></div>
+                    </div>
+                    <div class="cake-stand"></div>
+                </div>
+            </div>
+
+            <button class="celebrate-btn pulse-glow-btn" id="blowCandlesBtn">
+                <span class="btn-icon">🎂</span> Blow Candles & Make a Wish!
+            </button>
+            <p class="cake-instruction" id="cakeInstruction">Click to blow out all 9 candles and unlock the celebration music! 🎶</p>
+        </section>
+
+        <!-- ================= PHOTO MEMORIES SECTION ================= -->
+        <section class="memories-section">
+            <h2 class="section-title text-rainbow-glow">🌟 Awesome Memories of Naga Arjun</h2>
+            
+            <div class="polaroid-gallery">
+                <div class="polaroid-card" style="--rotate: -4deg; --bg-accent: #FF6B6B;">
+                    <div class="polaroid-img-wrapper">
+                        <img src="assets/space_explorer.png" alt="Naga Arjun Space Explorer" loading="lazy">
+                        <div class="sparkle-overlay"></div>
+                    </div>
+                    <div class="polaroid-caption">🚀 Space Explorer Arjun</div>
+                </div>
+
+                <div class="polaroid-card" style="--rotate: 3deg; --bg-accent: #4D96FF;">
+                    <div class="polaroid-img-wrapper">
+                        <img src="assets/soccer_champion.png" alt="Naga Arjun Soccer Champion" loading="lazy">
+                        <div class="sparkle-overlay"></div>
+                    </div>
+                    <div class="polaroid-caption">🏆 Future Soccer Hero!</div>
+                </div>
+
+                <div class="polaroid-card" style="--rotate: -2deg; --bg-accent: #6BCB77;">
+                    <div class="polaroid-img-wrapper">
+                        <img src="assets/dragon_rider.png" alt="Naga Arjun Dragon Rider" loading="lazy">
+                        <div class="sparkle-overlay"></div>
+                    </div>
+                    <div class="polaroid-caption">🐉 Magic Dragon Rider</div>
+                </div>
+
+                <div class="polaroid-card" style="--rotate: 5deg; --bg-accent: #A855F7;">
+                    <div class="polaroid-img-wrapper">
+                        <img src="assets/magic_party.png" alt="Naga Arjun Magic Party" loading="lazy">
+                        <div class="sparkle-overlay"></div>
+                    </div>
+                    <div class="polaroid-caption">🎁 Unbelievable 9th Birthday!</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FUN BIRTHDAY WISHES SECTION ================= -->
+        <section class="wishes-section">
+            <h2 class="section-title text-rainbow-glow">✨ Superpowers & Wishes For Arjun</h2>
+            
+            <div class="wishes-grid">
+                <div class="wish-card" id="wishCard1" style="--theme-color: #FF6B6B;">
+                    <div class="wish-icon">🌟</div>
+                    <h3>You're Amazing!</h3>
+                    <p>You spread joy everywhere you go. Keep shining brightly!</p>
+                </div>
+                
+                <div class="wish-card" id="wishCard2" style="--theme-color: #FFD93D;">
+                    <div class="wish-icon">🚀</div>
+                    <h3>Reach for the Stars!</h3>
+                    <p>There are no limits to your dreams. Go explore the galaxy!</p>
+                </div>
+                
+                <div class="wish-card" id="wishCard3" style="--theme-color: #6BCB77;">
+                    <div class="wish-icon">🎮</div>
+                    <h3>Have Fun Every Day!</h3>
+                    <p>May every day feel like an exciting game filled with level-ups!</p>
+                </div>
+                
+                <div class="wish-card" id="wishCard4" style="--theme-color: #4D96FF;">
+                    <div class="wish-icon">🏆</div>
+                    <h3>Future Champion!</h3>
+                    <p>You have the heart of a winner. Win the match of life!</p>
+                </div>
+                
+                <div class="wish-card" id="wishCard5" style="--theme-color: #A855F7;">
+                    <div class="wish-icon">🎉</div>
+                    <h3>Enjoy Your Special Day!</h3>
+                    <p>Today is all about you! Eat cake, open gifts, and laugh plenty!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= COUNTDOWN SECTION ================= -->
+        <section class="countdown-section">
+            <h2 class="section-title text-rainbow-glow">⚡ Countdown to Arjun's 10th Birthday!</h2>
+            
+            <div class="countdown-container">
+                <div class="countdown-card" id="cdDays">
+                    <div class="countdown-val">365</div>
+                    <div class="countdown-lbl">Days</div>
+                </div>
+                <div class="countdown-card" id="cdHours">
+                    <div class="countdown-val">00</div>
+                    <div class="countdown-lbl">Hours</div>
+                </div>
+                <div class="countdown-card" id="cdMinutes">
+                    <div class="countdown-val">00</div>
+                    <div class="countdown-lbl">Mins</div>
+                </div>
+                <div class="countdown-card" id="cdSeconds">
+                    <div class="countdown-val">00</div>
+                    <div class="countdown-lbl">Secs</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= MINI GAMES SECTION ================= -->
+        <section class="games-section">
+            <h2 class="section-title text-rainbow-glow">🎮 Arjun's Magical Arcade Cabinet</h2>
+            <p class="games-subtitle">Choose a game to play and win high scores! 🏆🕹️</p>
+            
+            <div class="arcade-cabinet">
+                <!-- Arcade Header -->
+                <div class="arcade-marquee">
+                    <span class="marquee-text neon-red">NAGA</span>
+                    <span class="marquee-text neon-blue">ARJUN</span>
+                    <span class="marquee-text neon-gold">ARCADE</span>
+                </div>
+                
+                <!-- Arcade Game Select Tabs -->
+                <div class="arcade-tabs">
+                    <button class="arcade-tab-btn active" id="btnGame1" data-game="gameBalloons">
+                        🎈 Pop Balloons
+                    </button>
+                    <button class="arcade-tab-btn" id="btnGame2" data-game="gameStars">
+                        ⭐ Catch Stars
+                    </button>
+                    <button class="arcade-tab-btn" id="btnGame3" data-game="gameGifts">
+                        🎁 Find Cake
+                    </button>
+                </div>
+                
+                <!-- Arcade Screen -->
+                <div class="arcade-screen">
+                    <div class="scanlines"></div>
+                    
+                    <!-- Game 1: Pop Balloons -->
+                    <div class="game-view active" id="gameBalloons">
+                        <div class="game-hud">
+                            <span class="hud-score">SCORE: <span id="balloonsScore">0</span></span>
+                            <span class="hud-timer">TIME: <span id="balloonsTimer">30</span>s</span>
+                        </div>
+                        <div class="game-play-area" id="balloonPlayArea">
+                            <div class="game-start-overlay" id="balloonStartOverlay">
+                                <h3>🎈 POP THE BALLOONS! 🎈</h3>
+                                <p>Pop as many balloons as you can before time runs out!</p>
+                                <button class="arcade-btn" id="startBalloonsBtn">START GAME</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Game 2: Catch Stars -->
+                    <div class="game-view" id="gameStars">
+                        <div class="game-hud">
+                            <span class="hud-score">SCORE: <span id="starsScore">0</span></span>
+                            <span class="hud-timer">TIME: <span id="starsTimer">30</span>s</span>
+                        </div>
+                        <div class="game-play-area" id="starsPlayArea">
+                            <canvas id="starsGameCanvas"></canvas>
+                            <div class="game-start-overlay" id="starsStartOverlay">
+                                <h3>⭐ CATCH THE STARS! ⭐</h3>
+                                <p>Move the Gift Basket with your mouse or drag it to catch falling stars!</p>
+                                <button class="arcade-btn" id="startStarsBtn">START GAME</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Game 3: Find Cake -->
+                    <div class="game-view" id="gameGifts">
+                        <div class="game-hud">
+                            <span class="hud-score">SCORE: <span id="giftsScore">0</span></span>
+                            <span class="hud-status" id="giftsStatus">Find the birthday cake! 🎂</span>
+                        </div>
+                        <div class="game-play-area" id="giftsPlayArea">
+                            <div class="gifts-grid">
+                                <div class="gift-box" data-index="0" id="gift0">
+                                    <div class="gift-lid"></div>
+                                    <div class="gift-ribbon"></div>
+                                    <div class="gift-body"></div>
+                                    <div class="gift-prize" id="prize0"></div>
+                                </div>
+                                <div class="gift-box" data-index="1" id="gift1">
+                                    <div class="gift-lid"></div>
+                                    <div class="gift-ribbon"></div>
+                                    <div class="gift-body"></div>
+                                    <div class="gift-prize" id="prize1"></div>
+                                </div>
+                                <div class="gift-box" data-index="2" id="gift2">
+                                    <div class="gift-lid"></div>
+                                    <div class="gift-ribbon"></div>
+                                    <div class="gift-body"></div>
+                                    <div class="gift-prize" id="prize2"></div>
+                                </div>
+                                <div class="gift-box" data-index="3" id="gift3">
+                                    <div class="gift-lid"></div>
+                                    <div class="gift-ribbon"></div>
+                                    <div class="gift-body"></div>
+                                    <div class="gift-prize" id="prize3"></div>
+                                </div>
+                                <div class="gift-box" data-index="4" id="gift4">
+                                    <div class="gift-lid"></div>
+                                    <div class="gift-ribbon"></div>
+                                    <div class="gift-body"></div>
+                                    <div class="gift-prize" id="prize4"></div>
+                                </div>
+                                <div class="gift-box" data-index="5" id="gift5">
+                                    <div class="gift-lid"></div>
+                                    <div class="gift-ribbon"></div>
+                                    <div class="gift-body"></div>
+                                    <div class="gift-prize" id="prize5"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="game-start-overlay" id="giftsStartOverlay">
+                                <h3>🎁 FIND THE BIRTHDAY CAKE! 🎁</h3>
+                                <p>Unwrap the gifts and search for the hidden Birthday Cake! Watch out for other fun surprises.</p>
+                                <button class="arcade-btn" id="startGiftsBtn">START SEARCH</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Arcade Controls Console Panel decoration -->
+                <div class="arcade-panel">
+                    <div class="joystick">
+                        <div class="joystick-knob"></div>
+                        <div class="joystick-stick"></div>
+                    </div>
+                    <div class="action-buttons">
+                        <div class="action-btn red" id="arcadeControlA"></div>
+                        <div class="action-btn yellow" id="arcadeControlB"></div>
+                        <div class="action-btn green" id="arcadeControlC"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CELEBRATION BUTTON ================= -->
+        <section class="mega-celebration-section">
+            <button class="celebrate-btn pulse-glow-btn massive-btn" id="megaCelebrateBtn">
+                ⚡ CELEBRATE NAGA ARJUN! ⚡
+            </button>
+            <p class="celebrate-hint">Click this to trigger instant non-stop fireworks, balloons, and high-energy party beats! 🎉✨🎁</p>
+        </section>
+
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="party-footer">
+        <div class="footer-balloons">🎈🎈🎈</div>
+        <p class="footer-made-with">Made with ❤️ for</p>
+        <h2 class="footer-recipient">NAGA ARJUN</h2>
+        <p class="footer-blurb">🎂 Happy 9th Birthday 🎂</p>
+        <p class="copyright">&copy; 2026 - A Magical Birthday Experience</p>
+    </footer>
+
+    <!-- Web Application Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
